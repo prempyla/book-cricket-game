@@ -1,99 +1,93 @@
+:root {
+  --primary: #2c3e50;       /* Dark blue */
+  --secondary: #e74c3c;     /* Vibrant red */
+  --accent: #f39c12;        /* Orange */
+  --light: #ecf0f1;         /* Light gray */
+  --dark: #2c3e50;          /* Dark blue */
+  --success: #27ae60;       /* Green */
+  --text: #34495e;          /* Dark gray-blue */
+}
+
+body {
+  background-color: #f5f7fa;
+  color: var(--text);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .game-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-  
-  .scorecards-container {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    margin-bottom: 20px;
-  }
-  
-  .message-box {
-    background-color: #fff;
-    border-left: 4px solid #3498db;
-    padding: 15px;
-    margin: 20px 0;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 80%;
-    text-align: center;
-  }
-  
-  .reset-button {
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-  }
-  
-  .reset-button:hover {
-    background-color: #c0392b;
-  }
-  
-  .instructions {
-    background-color: #f8f9fa;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 15px;
-    margin-top: 20px;
-    text-align: left;
-    max-width: 80%;
-  }
-  
-  .instructions h3 {
-    margin-top: 0;
-    color: #2c3e50;
-  }
-  
-  .instructions ul {
-    padding-left: 20px;
-  }
-  
-  .instructions li {
-    margin-bottom: 8px;
-  }
-  
-  .game-over-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 20px;
-    border-radius: 5px;
-    font-size: 24px;
-    z-index: 10;
-  }
-  
-  .runs-display {
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 20px;
-    color: #27ae60;
-    animation: fadeIn 0.5s;
-  }
-  
-  .runs-display.maximum {
-    color: #e74c3c;
-    animation: pulse 1s infinite;
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
-  @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-  }
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+h1 {
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.scorecards-container {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* Enhanced Book Styles (update book.css too) */
+.book-cover {
+  background: linear-gradient(145deg, #3498db, #2980b9);
+  box-shadow: 0 10px 30px -5px rgba(41, 128, 185, 0.3);
+}
+
+/* Button Enhancements */
+.reset-button {
+  background: var(--secondary);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: block;
+  margin: 2rem auto;
+  box-shadow: 0 4px 6px rgba(231, 76, 60, 0.2);
+}
+
+.reset-button:hover {
+  background: #c0392b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(231, 76, 60, 0.3);
+}
+
+/* Player Cards */
+.player {
+  background: var(--light);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 8px;
+  transition: all 0.3s;
+}
+
+.player.batting {
+  background: rgba(52, 152, 219, 0.1);
+  border-left: 4px solid var(--primary);
+}
+
+/* Animations */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.runs-display.maximum {
+  color: var(--secondary);
+  animation: pulse 1s infinite;
+}
